@@ -1,0 +1,14 @@
+{
+  "name": "meu_bolso_seguro",
+  "version": "1.0.0",
+  "description": "Servidor para gerenciamento das requisições via REST do aplicativo Meu Bolso Seguro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jorge Danilo G. da Silva",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}
