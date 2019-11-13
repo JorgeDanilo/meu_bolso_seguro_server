@@ -1,16 +1,16 @@
-const mysql = require('mysql');
-const connection = mysql.createConnection({
-    host: 'localhost',
-    port: '3306',
-    user: 'admin',
-    password: 'admin',
-    database: 'meu_bolso_seguro'
-});
+// const mysql = require('mysql');
+// const connection = mysql.createConnection({
+//     host: 'localhost',
+//     port: '3306',
+//     user: 'admin',
+//     password: 'admin',
+//     database: 'meu_bolso_seguro'
+// });
 
-connection.connect(function(err) {
-    if(err) return console.error(err);
-    console.log('connected success');
-});
+// connection.connect(function(err) {
+//     if(err) return console.error(err);
+//     console.log('connected success');
+// });
 
 
 //EXECUTE HERE COMMAND ON MYSQL TO CREATE USER ADMIN AND PRIVILEGIES WITH ADMIN.
@@ -19,3 +19,8 @@ connection.connect(function(err) {
 
 //GRANT ALL PRIVILEGES ON meu_bolso_seguro.* TO 'admin'@'%' WITH GRANT OPTION;
 //FLUSH PRIVILEGES;
+
+const Connection = require('../meu_bolso_seguro_server/config/db');
+const mysql = Connection();
+mysql.open();
+mysql.
