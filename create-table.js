@@ -23,7 +23,6 @@
 const Connection = require('../meu_bolso_seguro_server/config/db');
 const mysql = Connection();
 mysql.open();
-console.log(mysql.getConnection());
 
 const sql = "CREATE TABLE IF NOT EXISTS Clientes (\n"+
                   "ID int NOT NULL AUTO_INCREMENT,\n"+
@@ -36,3 +35,16 @@ mysql.getConnection().query(sql, function(error, results, fields) {
     if(error) return console.log(error);
     console.log('create table');
 });
+
+
+const sqlInsert = "INSERT INTO Clientes(Nome, CPF) VALUES ?";
+const values = [
+    ['teste1', '12345678901'],
+    ['teste1', '09876543210'],
+    ['teste3', '12312312399']
+];
+
+mysql.getConnection().query(sqlInsert, [values], function(error, results, fields) {
+    if(error) console.log(error);
+    console.log('create insert!');
+}) ;
