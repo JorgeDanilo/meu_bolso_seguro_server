@@ -23,4 +23,16 @@
 const Connection = require('../meu_bolso_seguro_server/config/db');
 const mysql = Connection();
 mysql.open();
-mysql.
+console.log(mysql.getConnection());
+
+const sql = "CREATE TABLE IF NOT EXISTS Clientes (\n"+
+                  "ID int NOT NULL AUTO_INCREMENT,\n"+
+                  "Nome varchar(150) NOT NULL,\n"+
+                  "CPF char(11) NOT NULL,\n"+
+                  "PRIMARY KEY (ID)\n"+
+                  ");";
+
+mysql.getConnection().query(sql, function(error, results, fields) {
+    if(error) return console.log(error);
+    console.log('create table');
+});

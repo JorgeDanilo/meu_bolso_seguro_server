@@ -26,7 +26,12 @@ const MySQLConnection = (function () {
 	MySQLConnection.prototype.close = function() {
 		console.log(`Closing ${this.constructor.name}` + 'to localhost') ;
 		connection.close();
-	};
+    };
+    
+    MySQLConnection.prototype.getConnection = function() {
+        console.log('getting connection');
+        return connection;  
+    };
 
 	return MySQLConnection;
 
@@ -36,9 +41,4 @@ function createConnection() {
     return new MySQLConnection();
 }
 
-function getConnection() {
-    return connection;
-}
-
 module.exports = createConnection;
-module.exports = getConnection;
