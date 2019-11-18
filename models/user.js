@@ -1,3 +1,8 @@
+const Connection = require('../../meu_bolso_seguro_server/config/db');
+const db = Connection();
+db.open();
+
+
 function User() {
 }
 
@@ -18,7 +23,12 @@ User.prototype.getPassword = function() {
 };
 
 User.prototype.getUser = function() {
-    return {'name': this.name, 'password': this.password};
+    const sqlSelect = "select * from Clientes";
+    db.getConnection().query(sqlSelect, function(error, results, fields) {
+    if(error) console.log(error);
+    console.log(results);
+    return results;
+});
 }
 
 var user = new User();

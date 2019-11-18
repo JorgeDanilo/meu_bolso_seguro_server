@@ -13,6 +13,6 @@ app.use(bodyParser.json());
 app.use('/', index);
 app.use('/users', personRouter);
 app.listen(3000);
-console.log('api success');
+console.log('api loaded success');
 
 module.exports = app;
