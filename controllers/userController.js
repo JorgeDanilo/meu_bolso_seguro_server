@@ -2,8 +2,7 @@
 const UserRepository = require('../repositories/userRepository');
 
 exports.get = (req, res, next) => {
-    // UserRepository.getAll().then((user) => {
-    //     res.status(200).send(user);
-    // });
+    const users = UserRepository.getAll();
+    res.status(200).send(users);
     console.log(UserRepository);
 }
