@@ -1,8 +1,8 @@
 'use strict';
-var User = require('../config/db');
+var User = require('../models/user');
 
 module.exports = new class UserRepository {
     getAll() {
-        return User.find();
+        return User.getUser();
     }
 }

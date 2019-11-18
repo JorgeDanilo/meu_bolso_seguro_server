@@ -58,4 +58,5 @@
 
 var user = require('../meu_bolso_seguro_server/models/user')
 user.setName('Teste');
-user.sayHello();
+user.setPassword('12345');
+console.log(user.getUser());

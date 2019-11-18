@@ -18,7 +18,7 @@ User.prototype.getPassword = function() {
 };
 
 User.prototype.getUser = function() {
-    return this.name, this.password
+    return {'name': this.name, 'password': this.password};
 }
 
 var user = new User();
