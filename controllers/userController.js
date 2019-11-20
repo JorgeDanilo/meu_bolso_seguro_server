@@ -1,9 +1,10 @@
 'use strict';
-const UserRepository = require('../repositories/userRepository');
+const respository = require('../repositories/userRepository');
 
 exports.get = (req, res, next) => {
-    const users = UserRepository.getAll().then(result => {
-        res.status(200).send(result);
+    respository.getAll().then(data => {
+        res.send(200, data);
+    }).catch(err => {
+        res.send(503, err);
     });
-    
 }

@@ -1,8 +1,14 @@
 'use strict';
-var User = require('../models/user');
+const model = require('../models/userModel');
 
-module.exports = new class UserRepository {
-    getAll() {
-        return User.getUser();
-    }
+function getAll() {
+    return new Promise((resolve, reject) => {
+        model.findAll().then(res => {
+            resolve(res);
+        }).catch(err => {
+            console.log(`erro ao buscar pessoas: ${err}`);
+        });
+    });
 }
+
+module.exports = {getAll};
