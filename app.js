@@ -5,7 +5,7 @@ const index = require('./routes/index');
 const userRouter = require('./routes/userRouter');
 const expenseRouter = require('./routes/expenseRouter');
 // const inputsouter = require('./routes/inputRouter');
-// const movementRouter = require('./routes/movementRouter');
+const movementRouter = require('./routes/movementRouter');
 
 
 app.use(bodyParser.urlencoded({
@@ -20,7 +20,7 @@ app.use('/', index);
 app.use('/users', userRouter);
 app.use('/expenses', expenseRouter);
 // app.use('/inputs', inputsouter);
-// app.use('/movements', movementRouter);
+app.use('/movements', movementRouter);
 
 app.listen(3000);
 console.log('api loaded success');
