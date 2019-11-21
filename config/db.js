@@ -20,5 +20,7 @@ db.movements = require('../models/movementModel.js')(sequelize, Sequelize);
 db.expense = require('../models/expenseModel.js')(sequelize, Sequelize);
 
 db.expense.belongsTo(db.users, {foreignKey: 'users_id'});
+db.inputs.belongsTo(db.users, {foreignKey: 'users_id'});
+// db.movements.hasMany(db.users);
 
 module.exports = db;

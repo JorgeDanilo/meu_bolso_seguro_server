@@ -15,15 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         reuseBalance: {
             type: DataTypes.BOOLEAN
         },
-    
-        users_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'users',
-                key: 'id',
-            }
-        }
-    
+        
     });
     
     return movementModel;

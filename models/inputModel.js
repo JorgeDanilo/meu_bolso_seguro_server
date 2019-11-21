@@ -19,15 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     
         inputDate: {
             type: DataTypes.DATE 
-        },
-    
-        users_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'users',
-                key: 'id',
-            }
-        }
+        },    
     });
 
     return inputModel;
