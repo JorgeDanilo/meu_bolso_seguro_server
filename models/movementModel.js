@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
     
-        lastDateMovement: {
+        lastDatemovements: {
             type: DataTypes.DATE
         },
     
