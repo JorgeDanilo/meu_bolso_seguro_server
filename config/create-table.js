@@ -55,8 +55,3 @@
 //     if(error) console.log(error);
 //     console.log(results);
 // });
-
-var user = require('../meu_bolso_seguro_server/models/user')
-user.setName('Teste');
-user.setPassword('12345');
-console.log(user.getUser());

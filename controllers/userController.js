@@ -8,3 +8,9 @@ exports.get = (req, res, next) => {
         res.send(503, err);
     });
 }
+
+exports.getById = (req, res, next) => {
+    respository.getById().then(data => {
+        
+    });
+};
