@@ -16,10 +16,10 @@ let movementModel = db.define('movement', {
         type: type.BOOLEAN
     },
 
-    userId: {
+    users_id: {
         type: type.INTEGER,
         references: {
-            model: 'user',
+            model: 'users',
             key: 'id',
         }
     }

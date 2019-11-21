@@ -10,10 +10,10 @@ let expenseModel = db.define('expense', {
     },
 
     // Foreing Key.
-    userId: {
+    users_id: {
         type: type.INTEGER,
         references: {
-            model: 'user',
+            model: 'users',
             key: 'id',
         }
     },

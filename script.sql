@@ -13,9 +13,9 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Table `mydb`.`user`
+-- Table `mydb`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`user` (
+CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`users` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `password` VARCHAR(100) NULL,
@@ -24,61 +24,61 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`expense`
+-- Table `mydb`.`expenses`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`expense` (
+CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`expenses` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `price` DOUBLE NOT NULL,
   `quantity` INT NULL,
   `dueDate` DATE NULL,
-  `expensecol` VARCHAR(45) NULL,
+  `expensescol` VARCHAR(45) NULL,
   `typeOfSpend` VARCHAR(50) NULL,
   `degreeOfImportance` VARCHAR(45) NULL,
   `description` VARCHAR(255) NULL,
   `status` VARCHAR(45) NULL,
-  `user_id` INT UNSIGNED NOT NULL,
+  `users_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_expense_user_idx` (`user_id` ASC) VISIBLE,
-  CONSTRAINT `fk_expense_user`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `meu_bolso_seguro`.`user` (`id`)
+  INDEX `fk_expenses_users_idx` (`users_id` ASC) VISIBLE,
+  CONSTRAINT `fk_expenses_users`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `meu_bolso_seguro`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`input`
+-- Table `mydb`.`inputs`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`input` (
+CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`inputs` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `price` DOUBLE NULL,
   `description` VARCHAR(255) NULL,
-  `inputDate` DATE NULL,
-  `user_id` INT UNSIGNED NOT NULL,
+  `inputsDate` DATE NULL,
+  `users_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_input_user1_idx` (`user_id` ASC) VISIBLE,
-  CONSTRAINT `fk_input_user1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `meu_bolso_seguro`.`user` (`id`)
+  INDEX `fk_inputs_users1_idx` (`users_id` ASC) VISIBLE,
+  CONSTRAINT `fk_inputs_users1`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `meu_bolso_seguro`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`movement`
+-- Table `mydb`.`movements`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`movement` (
+CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`movements` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `lastDateMovement` DATE NULL,
+  `lastDatemovements` DATE NULL,
   `reuseBalance` TINYINT NULL,
-  `user_id` INT UNSIGNED NOT NULL,
+  `users_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_movement_user1_idx` (`user_id` ASC) VISIBLE,
-  CONSTRAINT `fk_movement_user1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `meu_bolso_seguro`.`user` (`id`)
+  INDEX `fk_movements_users1_idx` (`users_id` ASC) VISIBLE,
+  CONSTRAINT `fk_movements_users1`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `meu_bolso_seguro`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

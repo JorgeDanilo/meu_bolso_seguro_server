@@ -21,10 +21,10 @@ let inputModel = db.define('input', {
         type: type.DATE 
     },
 
-    userId: {
+    users_id: {
         type: type.INTEGER,
         references: {
-            model: 'user',
+            model: 'users',
             key: 'id',
         }
     }
