@@ -1,13 +1,14 @@
-const db = require('../config/db');
-const type = db.Sequelize;
+'use strict'
 
-let userModel = db.define('users', {
-    id: {
-        type: type.INTEGER,
-        primaryKey: true
-    },
-    name: type.STRING,
-    password: type.STRING
-});
 
-module.exports = userModel;
+module.exports = (sequelize, DataTypes) => {
+    const userModel = sequelize.define('users', {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true
+        },
+        name: DataTypes.STRING,
+        password: DataTypes.STRING
+    });
+    return userModel;
+};

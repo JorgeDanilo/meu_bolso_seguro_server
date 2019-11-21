@@ -8,3 +8,9 @@ exports.get = (req, res, next) => {
         res.status(503).send(err);
     });
 }
+
+exports.authenticate = (req, res, next) => {
+    var username = req.query.username;
+    var password = req.query.password;
+    console.log(`username: ${username} and password ${password}`);
+};

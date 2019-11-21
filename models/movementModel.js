@@ -1,29 +1,31 @@
-const db = require('../config/db');
-const type = db.Sequelize;
+'use strict'
 
-let movementModel = db.define('movement', {
+module.exports = (sequelize, DataTypes) => {
+    const movementModel = sequelize.define('movement', {
 
-    id: {
-        type: type.INTEGER,
-        primaryKey: true
-    },
-
-    lastDateMovement: {
-        type: type.DATE
-    },
-
-    reuseBalance: {
-        type: type.BOOLEAN
-    },
-
-    users_id: {
-        type: type.INTEGER,
-        references: {
-            model: 'users',
-            key: 'id',
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true
+        },
+    
+        lastDateMovement: {
+            type: DataTypes.DATE
+        },
+    
+        reuseBalance: {
+            type: DataTypes.BOOLEAN
+        },
+    
+        users_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'users',
+                key: 'id',
+            }
         }
-    }
+    
+    });
+    
+    return movementModel;
 
-});
-
-module.exports = movementModel;
+};

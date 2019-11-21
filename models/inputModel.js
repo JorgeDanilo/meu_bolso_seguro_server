@@ -1,33 +1,34 @@
-const db = require('../config/db');
-const type = db.Sequelize;
+'use strict'
 
-let inputModel = db.define('input', {
 
-    // Id
-    id: {
-        type: type.INTEGER,
-        primaryKey: true
-    },
+module.exports = (sequelize, DataTypes) => {
+    const inputModel = sequelize.define('input', {
 
-    price: {
-        type: type.DOUBLE,
-    },
-
-    description: {
-        type: type.STRING
-    },
-
-    inputDate: {
-        type: type.DATE 
-    },
-
-    users_id: {
-        type: type.INTEGER,
-        references: {
-            model: 'users',
-            key: 'id',
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true
+        },
+    
+        price: {
+            type: DataTypes.DOUBLE,
+        },
+    
+        description: {
+            type: DataTypes.STRING
+        },
+    
+        inputDate: {
+            type: DataTypes.DATE 
+        },
+    
+        users_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'users',
+                key: 'id',
+            }
         }
-    }
-});
+    });
 
-module.exports = inputModel;
+    return inputModel;
+};
