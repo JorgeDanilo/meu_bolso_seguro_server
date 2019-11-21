@@ -8,3 +8,4 @@
 
 //  TO TABLE ASSOCIATE.
 // https://lorenstewart.me/2016/09/12/sequelize-table-associations-joins/
+// https://lorenstewart.me/2016/10/03/sequelize-crud-101/
