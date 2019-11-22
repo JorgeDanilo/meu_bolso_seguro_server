@@ -62,7 +62,9 @@ function authenticate(username, password) {
         db.user.findOne({
             where: {name: username, password: password}
         }).then(result => {
-            resolve(result);
+            if (result)
+                resolve(result);
+            else resolve({'description': 'user not found'});
         }).catch(err => {
             console.log(`erro ao autenticar: ${err}`);
             reject(err);
