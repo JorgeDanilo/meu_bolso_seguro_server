@@ -15,4 +15,20 @@ function getAll() {
     });
 }
 
-module.exports = {getAll}
+function create(data) {
+    return new Promise((resolve, reject) => {
+        db.expense.create({
+            price: data.body.price,
+            quantity: data.body.quantity,
+            dueDate: data.body.dueDate,
+            typeOfSpend: data.body.typeOfSpend,
+            degreeOfImportance: data.body.degreeOfImportance,
+            description: data.body.description,
+            status: data.body.status
+        }).then(newExpense => {
+            console.log(`new expense ${newExpense.id}, ${newExpense.price}, ${newExpense.description}`);
+        })
+    });
+}
+
+module.exports = {getAll, create}
