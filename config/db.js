@@ -1,6 +1,6 @@
 'use strict'
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('meu_bolso_seguro', 'admin', 'admin', {
+const sequelize = new Sequelize('meu_bolso_seguro', 'root', 'root', {
     host: 'localhost',
     port: 3306,
     dialect: 'mysql',

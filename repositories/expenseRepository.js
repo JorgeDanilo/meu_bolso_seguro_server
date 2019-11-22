@@ -24,9 +24,11 @@ function create(data) {
             typeOfSpend: data.body.typeOfSpend,
             degreeOfImportance: data.body.degreeOfImportance,
             description: data.body.description,
-            status: data.body.status
+            status: data.body.status,
+            users_id: data.body.users_id
         }).then(newExpense => {
             console.log(`new expense ${newExpense.id}, ${newExpense.price}, ${newExpense.description}`);
+            resolve(newExpense.get())
         })
     });
 }
