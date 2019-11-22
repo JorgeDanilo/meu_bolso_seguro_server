@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
     
-        inputDate: {
+        inputsDate: {
             type: DataTypes.DATE 
         },    
     });

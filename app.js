@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const index = require('./routes/index');
 const userRouter = require('./routes/userRouter');
 const expenseRouter = require('./routes/expenseRouter');
-// const inputsouter = require('./routes/inputRouter');
+const inputRouter = require('./routes/inputRouter');
 const movementRouter = require('./routes/movementRouter');
 
 
@@ -15,11 +15,10 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 //  Create root endpont.
-
 app.use('/', index);
 app.use('/users', userRouter);
 app.use('/expenses', expenseRouter);
-// app.use('/inputs', inputsouter);
+app.use('/inputs', inputRouter);
 app.use('/movements', movementRouter);
 
 app.listen(3000);

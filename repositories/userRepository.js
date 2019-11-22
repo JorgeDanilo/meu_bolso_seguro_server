@@ -8,6 +8,7 @@ function getAll() {
             resolve(res);
         }).catch(err => {
             console.log(`erro ao buscar pessoas: ${err}`);
+            reject(err);
         });
     });
 }
@@ -20,6 +21,7 @@ function authenticate(username, password) {
             resolve(result);
         }).catch(err => {
             console.log(`erro ao autenticar: ${err}`);
+            reject(err);
         });
     });
 }
