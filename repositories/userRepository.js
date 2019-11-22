@@ -3,7 +3,7 @@ const db = require('../config/db');
 
 function create(data) {
     return new Promise((resolve, reject) => {
-        db.users.create({
+        db.user.create({
             username: data.body.username,
             password: data.body.password
         }).then(newUser => {
@@ -22,7 +22,7 @@ function update(data) {
             username: data.body.username,
             password: data.body.password
         };
-        db.users.update(newData, {where: {id: data.param.id}}).then(dataUpdate => {
+        db.user.update(newData, {where: {id: data.param.id}}).then(dataUpdate => {
             console.log(`user update success ${dataUpdate}`);
             resolve(dataUpdate);
         }).catch(err => {
@@ -34,7 +34,7 @@ function update(data) {
 
 function remove(id) {
     return new Promise((resolve, reject) => {
-        db.users.destroy({
+        db.user.destroy({
             where: {id: id}
         }).then(deletedUser => {
             console.log(`has deleted success: ${deletedUser}`);
@@ -48,7 +48,7 @@ function remove(id) {
 
 function getAll() {
     return new Promise((resolve, reject) => {
-        db.users.findAll().then(res => {
+        db.user.findAll().then(res => {
             resolve(res);
         }).catch(err => {
             console.log(`erro ao buscar pessoas: ${err}`);
@@ -59,7 +59,7 @@ function getAll() {
 
 function authenticate(username, password) {
     return new Promise((resolve, reject) => {
-        db.users.findOne({
+        db.user.findOne({
             where: {name: username, password: password}
         }).then(result => {
             resolve(result);

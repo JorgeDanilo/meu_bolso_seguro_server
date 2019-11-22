@@ -3,7 +3,7 @@ const db = require('../config/db');
 
 function getAll() {
     return new Promise((resolve, reject) => {
-        db.inputs.findAll().then(result => {
+        db.input.findAll().then(result => {
             resolve(result);
         }).catch(err => {
             console.log(`erro ao buscar inputs: ${err}`);
@@ -14,11 +14,11 @@ function getAll() {
 
 function create(data) {
     return new Promise((resolve, reject) => {
-        db.inputs.create({
+        db.input.create({
             price: data.body.price,
             description: data.body.description,
-            inputsDate: data.body.inputsDate,
-            users_id: data.body.users_id
+            inputDate: data.body.inputDate,
+            user_id: data.body.user_id
         }).then(newInput => {
             console.log(`new input date save ${newInput.get()}`);
             resolve(newInput);
@@ -34,10 +34,10 @@ function update(data) {
         const newData = {
             price: data.body.price,
             description: data.body.description,
-            inputsDate: data.body.inputsDate,
-            users_id: data.body.users_id
+            inputDate: data.body.inputDate,
+            user_id: data.body.user_id
         };
-        db.inputs.update(newData, {where: {id: data.param.id}}).then(dataUpdated => {
+        db.input.update(newData, {where: {id: data.param.id}}).then(dataUpdated => {
             resolve(dataUpdated);
         }).catch(err => {
             reject(err);
@@ -48,7 +48,7 @@ function update(data) {
 
 function remove(id) {
     return new Promise((resolve, reject) => {
-        db.inputs.destroy({
+        db.input.destroy({
             where: {id: id}
         }).then(deletedInput => {
             console.log(`has deleted success: ${deletedInput}`)

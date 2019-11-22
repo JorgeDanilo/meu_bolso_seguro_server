@@ -25,7 +25,7 @@ function create(data) {
             degreeOfImportance: data.body.degreeOfImportance,
             description: data.body.description,
             status: data.body.status,
-            users_id: data.body.users_id
+            user_id: data.body.user_id
         }).then(newExpense => {
             console.log(`new expense ${newExpense.id}, ${newExpense.price}, ${newExpense.description}`);
             resolve(newExpense.get())
@@ -43,7 +43,7 @@ function update(data) {
             degreeOfImportance: data.body.degreeOfImportance,
             description: data.body.description,
             status: data.body.status,
-            users_id: data.body.users_id
+            user_id: data.body.user_id
         };
         db.expense.update(newData, {where: {id: data.param.id}}).then(dataUpdated => {
             console.log(`update expense success: ${dataUpdated}`);
