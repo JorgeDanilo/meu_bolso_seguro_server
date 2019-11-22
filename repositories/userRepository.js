@@ -1,6 +1,50 @@
 'use strict';
 const db = require('../config/db');
 
+function create(data) {
+    return new Promise((resolve, reject) => {
+        db.users.create({
+            username: data.body.username,
+            password: data.body.password
+        }).then(newUser => {
+            console.log(`user saved success: ${newUser}`);
+            resolve(newUser);
+        }).catch(err => {
+            console.log(`error to save user ${err}`);
+            reject(err);
+        });
+    });
+}
+
+function update(data) {
+    return new Promise((resolve, reject) => {
+        const newData = {
+            username: data.body.username,
+            password: data.body.password
+        };
+        db.users.update(newData, {where: {id: data.param.id}}).then(dataUpdate => {
+            console.log(`user update success ${dataUpdate}`);
+            resolve(dataUpdate);
+        }).catch(err => {
+            console.log(`error to update user: ${err}`);
+            reject(err);
+        })
+    });
+}
+
+function remove(id) {
+    return new Promise((resolve, reject) => {
+        db.users.destroy({
+            where: {id: id}
+        }).then(deletedUser => {
+            console.log(`has deleted success: ${deletedUser}`);
+            resolve(deletedUser);
+        }).catch(err => {
+            console.log(`error to delete user ${err}`);
+            reject(err);
+        });
+    }); 
+}
 
 function getAll() {
     return new Promise((resolve, reject) => {
@@ -26,4 +70,4 @@ function authenticate(username, password) {
     });
 }
 
-module.exports = {getAll, authenticate};
+module.exports = {getAll, authenticate, create, update, remove};

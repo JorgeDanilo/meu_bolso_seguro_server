@@ -33,4 +33,39 @@ function create(data) {
     });
 }
 
-module.exports = {getAll, create}
+function update(data) {
+    return new Promise((resolve, reject) => {
+        const newData = {
+            price: data.body.price,
+            quantity: data.body.quantity,
+            dueDate: data.body.dueDate,
+            typeOfSpend: data.body.typeOfSpend,
+            degreeOfImportance: data.body.degreeOfImportance,
+            description: data.body.description,
+            status: data.body.status,
+            users_id: data.body.users_id
+        };
+        db.expense.update(newData, {where: {id: data.param.id}}).then(dataUpdated => {
+            console.log(`update expense success: ${dataUpdated}`);
+            resolve(dataUpdated);
+        }).catch(err => {
+            console.log(`erro to update expense: ${err}`);
+            reject(err);
+        });
+    });
+}
+
+function remove(id) {
+    return new Promise((resolve, reject) => {
+        db.expense.destroy({
+            where: {id: id}
+        }).then(deletedExpense => {
+            console.log(`has deleted success ${deletedExpense}`);
+            resolve(deletedExpense);
+        }).catch(err => {
+            console.log(`erro to delete input ${err}`);
+        });
+    });
+}
+
+module.exports = {getAll, create, update, remove}
