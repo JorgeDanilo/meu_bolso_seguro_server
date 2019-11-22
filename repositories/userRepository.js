@@ -12,4 +12,16 @@ function getAll() {
     });
 }
 
-module.exports = {getAll};
+function authenticate(username, password) {
+    return new Promise((resolve, reject) => {
+        db.users.findOne({
+            where: {name: username, password: password}
+        }).then(result => {
+            resolve(result);
+        }).catch(err => {
+            console.log(`erro ao autenticar: ${err}`);
+        });
+    });
+}
+
+module.exports = {getAll, authenticate};
