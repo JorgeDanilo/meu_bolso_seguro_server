@@ -8,13 +8,13 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
     
-        lastDatemovements: {
+        lastDateMovement: {
             type: DataTypes.DATE
         },
     
         reuseBalance: {
             type: DataTypes.BOOLEAN
-        },
+        }
         
     });
     

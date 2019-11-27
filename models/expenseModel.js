@@ -8,17 +8,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             primaryKey: true
         },
-    
-        // Foreing Key.
-        // users_id: {
-        //     type: type.INTEGER,
-        //     references: {
-        //         model: 'users',
-        //         key: 'id',
-        //     }
-        // },
-    
-    
+
         // Preço
         price: {
             type: DataTypes.DOUBLE

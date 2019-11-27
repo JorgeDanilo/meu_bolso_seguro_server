@@ -25,4 +25,5 @@ db.input.belongsTo(db.user, {foreignKey: 'user_id'});
 db.movement.belongsTo(db.expense, {foreignKey: 'expense_id'});
 db.movement.belongsTo(db.input, {foreignKey: 'input_id'});
 
+
 module.exports = db;

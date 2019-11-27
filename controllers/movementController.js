@@ -17,3 +17,15 @@ exports.getById = (req, res, next) => {
         res.status(503).send(err);
     });
 };
+
+exports.getAllPrice = (req, res, next) => {
+    repository.getAllPrice().then(data => {
+        res.status(200).send(data);
+    }).catch(err => {
+        res.status(503).send(err);
+    });
+};
+
+exports.getAllByMother = (req, res, next) => {
+
+};

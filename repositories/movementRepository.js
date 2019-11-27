@@ -4,7 +4,7 @@ const db = require('../config/db');
 function getAll() {
     return new Promise((resolve, reject) => {
         db.movement.findAll({
-            include: [{model: db.users}]
+            include: [{model: db.input}, {model: db.expense}]
         }).then(res => {
             resolve(res);
         }).catch(err => {
@@ -23,10 +23,20 @@ function getById(idMovement) {
 
 function getAllPrice() {
     return new Promise((resolve, reject) => {
-        db.movement.query("SELECT SUM(i.price) + SUM(e.price) as total FROM movement m LEFT JOIN expense e ON m.expense_id = e.id LEFT JOIN input i ON m.input_id = i.id").then(results => {
+        db.movement.query('SELECT * from movement', {
+            include: []    
+        }).then(results => {
             console.log(`get all price ${results}`);
+        }).catch(err => {
+            console.log(`error to get price => ${err}`)
         });
     });
 }
 
-module.exports = {getAll, getById};
+function getAllByMother(dateActual) {
+    return new Promise((resolve, reject) => {
+
+    });
+}
+
+module.exports = {getAll, getById, getAllPrice};
