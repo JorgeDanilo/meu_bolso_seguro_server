@@ -23,5 +23,5 @@ exports.register = (req, res, next) => {
     };
     
     firebase.messaging.sendToDevice(firebaseToken, payload, options);
-    
+    console.log(auth);
 };
