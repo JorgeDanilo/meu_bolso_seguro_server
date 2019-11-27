@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require('../controllers/movementController');
 
 router.get('/', controller.get);
-router.get('/:id', controller.getById);
-router.get('/allprice', controller.getAllPrice);
+router.get('/prices', controller.getPrice);
+router.get('/filter', controller.getAllByMoth);
 
 module.exports = router;

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         },
     
         lastDateMovement: {
-            type: DataTypes.DATE
+            type: DataTypes.DATEONLY
         },
     
         reuseBalance: {
