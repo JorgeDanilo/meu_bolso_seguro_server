@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "meu-bolso-seguro",
+  "private_key_id": "840a4c0f1c8a597ad6cc34b0979ac614a8a4635d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDh9dV1Dk99mvy4\n0lgdZVhylTs6Rva3P+ZBBA4mTQfvuHhd4o9g3K6RPhzTE6iotk2JJZ62PVZ49U1s\nJtu75DnrRCG34gmgEoccTDfw1DhFh8OAq1RKcOf558hPEamCbiVDeRwIpCEy6vY3\nlue5GYCU+2ozRlTJznM7BsO50w6aplenOzPt2f18J36L1FmQBzSCyd4HzpazrqWm\ndF3alwcxA10NbmbM4rdNBrg8NDrfvM+SQtWL4JNijGUXMg2HLqUmZBycjnhelF6j\nNfBKPy9HBRGLZpNBx7D+HPrNtoQa5yq5TEn2B9L3atzGBwhUZwrXQdOvHzVUyaQH\ntIbLeKxxAgMBAAECggEABijX5UV7GD7x1a3yNfbtxs3Xm/qUPiGRSsNsCVI/PaMn\nMNP8uZS6c34gdgaKqfKyQWNTpL8eTNTPA/w5MDGD/KxSSPtx7Lmkkjpnqfp3ADo3\ns5m4BgF26WKOnM0r9EDBZkn2YCvtNcCe7pv//BU8YpNJ7VTk+c1Vac4A5t9gfgmu\np7qkpKZqDAPOF4rmG1IrQnC7xeqycg+W6G4GhXPStWgwRlIqpSHdgJAc7K7ZQxcv\npk4OTMiX3R33q5bwlNgWe4OYQ3BSHGzdKstCc7SM7FImpy3Hgb13U4cI5XHcMq95\naB/DSlX0ag27cZBw+qtVBZ3qpeqf2msXdw5k2FY12QKBgQD9OBARzkgcOaHTbRa/\nHzl1QAWdtShKdq4pSfYnfwKGv5D8wuNC7bNAVeRQZw22RwIqjuJt4k2KUD4HV9dZ\nTaYacLJFP31tmrQToK6qCan4VEKSgAsetyCxdcgCI20h3ZBzpgYkueXujdZblRYI\nGgSJiFVcj1hZsma+Tc+BO6VsZQKBgQDkcSHEAcF/eEebBWDeZ0585g3ya19isu4l\n81KV3koJL+c1cawIGd0xZ616IdjJh/iDsqvDnENXWmieuXafVZhmp+1XZQHqxlDW\n6q4SmUiISaiiiOUjExMtiCMLFO86wTgJUEtQ/3uPb6YzxLJyD8fulFwgmMCDpNSM\nblNf4KMBHQKBgG0oqeTDJFrmjVhzgobJkx90hfdCjSfsmY+7Dp5gJlqoYnxUF1xW\n1Bs767ytcD/PxKNMDViJYhvqE5Nezrr0ulJTmsY3ZH7HXjHH5wPuPpOK31gAUsre\n7v0RZTNmyjj7JrZ0L9nNOc3o3yuDzYeYj7QqTYIlWVTxj1Eigf2YFOvxAoGBAN3E\nTilAIx6iH7GIqR9/Xpy1oTiDsBfa6IKDEttW7ry4elZRwdYjda4uniSAkzoh+8mu\nPD0rh9xXclUUauoHaGnQAALlldTbLUNWlCKOF/HmwAT5rKg+LlH3ZT2u1wdM6B9y\niYtaWhNHKiv7edhtJYShFka2w72I2KZzvBDJvLSpAoGALjsSVSfavPMpLuJvIiYu\nwex4vwxeW19Ei5NeMNNcZ9fbUg7D4vy5hBT7NnjR78K/h5YCbyFlyM8ecpt6/mMb\nVnqCFnn/BDBl7sb8Oyw2WqYaVVqVOzn3HNniZRloHisOMZbL0yUD7RLqsZFmdqAB\nxJ1o0DC9FXfjNBcx+XLed1k=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ovxsy@meu-bolso-seguro.iam.gserviceaccount.com",
+  "client_id": "100072607755536675264",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ovxsy%40meu-bolso-seguro.iam.gserviceaccount.com"
+}
