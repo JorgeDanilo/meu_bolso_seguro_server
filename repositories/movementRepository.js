@@ -12,6 +12,7 @@ function getAll() {
             resolve(res);
         }).catch(err => {
             console.log(`erro ao buscar movimentos: ${err}`);
+            reject(err);
         });
     });
 }
@@ -51,14 +52,39 @@ function getAllByMoth(mothActual) {
             lastDateMovement: {
                 [Op.between]: [startDate, endDate]
             }
-        }, {
-            lastDateMovement: {
-                [Op.between]: [startDate, endDate]
-            }
-           }]
+        }]
         }
         db.movement.findAll({
-            include: [{model: db.input}, {model: db.expense}],
+            include: [
+                {model: db.input}, 
+                {model: db.expense}],
+            where
+        }).then(data => {
+            resolve(data);
+        })
+    }).catch(err => {
+        console.log(err);
+        reject(err);
+    })
+}
+
+function getAllByDate(startDate, endDate) {
+    return new Promise((resolve, reject) => {
+        const where = {
+           [Op.and]: [
+               {
+                    lastDateMovement: 
+                    { 
+                        [Op.between]: [startDate, endDate]
+                    }
+                }
+            ]
+        }
+        db.movement.findAll({
+            include: [
+                {model: db.input},
+                {model: db.expense}
+                ],
             where
         }).then(data => {
             resolve(data);
@@ -74,4 +100,4 @@ function getLastDayOfMoth(mothActual) {
     return lastDay;
 }
 
-module.exports = {getAll, getPrice, getAllByMoth};
+module.exports = {getAll, getPrice, getAllByMoth, getAllByDate};

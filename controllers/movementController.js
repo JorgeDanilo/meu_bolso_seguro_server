@@ -18,9 +18,21 @@ exports.getPrice = (req, res, next) => {
 };
 
 exports.getAllByMoth = (req, res, next) => {
-    repository.getAllByMoth(req.query.month).then(data => {
-        res.status(200).send(data);
-    }).catch(err => {
-        res.status(503).send(err);
-    });
+    var month = req.query.month;
+    var startDate = req.query.startDate;
+    var endDate = req.query.endDate;
+    if (month) {
+        repository.getAllByMoth(req.query.month).then(data => {
+            res.status(200).send(data);
+        }).catch(err => {
+            res.status(503).send(err);
+        });
+    } else if (startDate && endDate) {
+        repository.getAllByDate(startDate, endDate).then(data => {
+            res.status(200).send(data);
+        }).catch(err => {
+            res.status(503).send(err);
+        });
+    }
+    
 };
