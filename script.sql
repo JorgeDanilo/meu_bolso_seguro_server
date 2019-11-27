@@ -86,3 +86,57 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+-- CREATING TRIGGER TO CHANGE TABLE MOVEMENT.
+
+
+DELIMITER $
+-- Quando criar a entrada
+CREATE TRIGGER change_movement_insert_input AFTER INSERT
+ON input
+FOR EACH ROW
+BEGIN
+	INSERT movement (lastDateMovement, reuseBalance, expense_id, input_id) VALUES
+    (NOW(), 1, NULL, NEW.id);
+END$
+
+-- Quando alterar a entrada.
+CREATE TRIGGER change_movement_update_input AFTER UPDATE
+ON input
+FOR EACH ROW
+BEGIN
+	UPDATE movement SET lastDateMovement = NOW(), reuseBalance = 1, expense_id = NULL, input_id = NEW.id
+    WHERE movement.id = NEW.id;
+END$
+
+-- Quando deletar a entrada
+CREATE TRIGGER change_movement_delete_input AFTER DELETE
+ON input
+FOR EACH ROW
+BEGIN
+	DELETE FROM movement WHERE movement.input_id = OLD.id;
+END$
+
+
+-- Quando criar a saida
+CREATE TRIGGER change_movement_insert_expense AFTER INSERT
+ON expense
+FOR EACH ROW
+BEGIN
+	INSERT movement (lastDateMovement, reuseBalance, expense_id, input_id) VALUES
+    (NOW(), 1, NEW.id, NULL);
+END$
+
+CREATE TRIGGER change_movement_update_expense AFTER UPDATE
+ON expense
+FOR EACH ROW
+BEGIN
+	UPDATE movement SET lastDateMovement = NOW(), reuseBalance = 1, expense_id = NEW.id, input_id = NULL
+    WHERE movement.id = NEW.id;
+END$
+
+DELIMITER ;
+
+
+-- DROP TRIGGER IF EXISTS change_movement_insert_input;
