@@ -21,7 +21,7 @@ app.use('/users', userRouter);
 app.use('/expenses', expenseRouter);
 app.use('/inputs', inputRouter);
 app.use('/movements', movementRouter);
-app.use('/notification', notificationRouter);
+app.use('/notifications', notificationRouter);
 
 
 app.listen(3000);

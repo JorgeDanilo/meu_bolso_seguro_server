@@ -30,11 +30,7 @@ exports.send = (req, res, next) => {
 };
 
 exports.register = (req, res, next) => {
-   const data = {
-       userId: req.body.userId,
-       token: req.body.token
-   };
-   repository.register(data).then(data => {
+   repository.register(req).then(data => {
        res.status(200).send(data);
    }).catch(err => {
        res.status(503).send(err);

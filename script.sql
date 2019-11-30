@@ -85,7 +85,7 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`notification` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `token` DOUBLE NULL,
+  `token` VARCHAR(255) NULL,
   `user_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_notification_user1_idx` (`user_id` ASC),
@@ -94,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`notification` (
     REFERENCES `meu_bolso_seguro`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+    
 ENGINE = InnoDB;
 
 

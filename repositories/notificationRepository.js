@@ -1,13 +1,14 @@
 'use strict';
 const db = require('../config/db');
-const Sequelize = require('sequelize');
-const Op = Sequelize.Op
 
 function register(data) {
+    console.log(data.body.user_id);
+    console.log(data.body.token);
+
     return new Promise((resolve, reject) => {
         db.notification.create({
-            user_id = data.userId,
-            token: data.token
+            user_id: data.body.user_id,
+            token: data.body.token
         }).then(newNotification => {
             console.log(`new notification create ${newNotification}`);
             resolve(newNotification);
