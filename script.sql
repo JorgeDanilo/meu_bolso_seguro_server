@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`expense` (
   `typeOfSpend` VARCHAR(50) NULL,
   `degreeOfImportance` VARCHAR(45) NULL,
   `description` VARCHAR(255) NULL,
-  `status` VARCHAR(45) NULL,
+  `status` VARsCHAR(45) NULL,
   `user_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_expense_user_idx` (`user_id` ASC),
@@ -81,6 +81,29 @@ CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`movement` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `meu_bolso_seguro`.`notification` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `token` DOUBLE NULL,
+  `user_id` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_notification_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_notification_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `meu_bolso_seguro`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+
+
+
+
+
+
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
