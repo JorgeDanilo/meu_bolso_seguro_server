@@ -1,4 +1,5 @@
 'use strict'
+const moment = require('moment');
 
 module.exports = (sequelize, DataTypes) => {
     const expenseModel = sequelize.define('expense', {
@@ -21,7 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     
         // Data de vencimento da despesa
         dueDate: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            get() {
+                return moment(this.getDataValue('dueDate')).format('DD/MM/YYYY')
+            }
         },
     
     

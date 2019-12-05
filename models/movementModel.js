@@ -1,4 +1,6 @@
 'use strict'
+const moment = require('moment');
+
 
 module.exports = (sequelize, DataTypes) => {
     const movementModel = sequelize.define('movement', {
@@ -9,7 +11,10 @@ module.exports = (sequelize, DataTypes) => {
         },
     
         lastDateMovement: {
-            type: DataTypes.DATEONLY
+            type: DataTypes.DATEONLY,
+            get() {
+                return moment(this.getDataValue('lastDateMovement')).format('DD/MM/YYYY')
+            }
         },
     
         reuseBalance: {
